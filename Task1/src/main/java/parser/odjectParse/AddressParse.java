@@ -22,7 +22,6 @@ public class AddressParse extends ParseXML {
             AddresAndClientBase.listAdress.add(add);
             return add;
         }
-
         return null;
     }
 }

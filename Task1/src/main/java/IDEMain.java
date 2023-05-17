@@ -10,8 +10,10 @@ public class IDEMain {
 
     public static void main(String[] args) throws XMLStreamException, FileNotFoundException {
         FileParseService xmlParser = new FileParseService();
-        xmlParser.dispatch(new File("address.xml"),new File("client.xml"));
+        xmlParser.dispatch(new File("address.xml"), new File("client.xml"));
         AddresAndClientBase.printListClientBook();
+    }
+}
 
        /* CounterPeopleOnFloor counterPeopleOnFloor = new CounterPeopleOnFloor();
         PeopleOnFlatnumber peopleOnFlatnumber = new PeopleOnFlatnumber();
@@ -29,5 +31,4 @@ public class IDEMain {
         System.out.println(" ");
         processPeopleOnFlatnumber.join();
         System.out.println(number);*/
-    }
-}
+
