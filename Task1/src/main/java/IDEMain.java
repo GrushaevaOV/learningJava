@@ -1,4 +1,5 @@
 import parser.odjectParse.FileParseService;
+import serviceDataPrint.CommunicationUser;
 import utils.AddresAndClientBase;
 
 import javax.xml.stream.XMLStreamException;
@@ -10,8 +11,9 @@ public class IDEMain {
 
     public static void main(String[] args) throws XMLStreamException, FileNotFoundException {
         FileParseService xmlParser = new FileParseService();
-        xmlParser.dispatch(new File("address.xml"),new File("client.xml"));
-        AddresAndClientBase.printListClientBook();
+        xmlParser.dispatch(new File("Task1/address.xml"),new File("Task1/client.xml"));
+        CommunicationUser communicationUser = new CommunicationUser();
+        communicationUser.communicate();
 
        /* CounterPeopleOnFloor counterPeopleOnFloor = new CounterPeopleOnFloor();
         PeopleOnFlatnumber peopleOnFlatnumber = new PeopleOnFlatnumber();
