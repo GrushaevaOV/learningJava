@@ -48,6 +48,7 @@ public abstract class ParseXML implements Parser {
         } catch (XMLStreamException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
 }
