@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 
 public interface Parser {
-    void parse(List<BufferedReader> bufferedReaders, List<ZipEntry> entrys ) throws IOException;
+    void parse(BufferedReader bufferedReaders) throws IOException;
 
 
 }

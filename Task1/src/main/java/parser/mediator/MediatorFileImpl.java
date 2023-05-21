@@ -1,4 +1,3 @@
-/*
 package parser.mediator;
 
 import parser.odjectParse.AddressParse;
@@ -9,13 +8,14 @@ import javax.xml.stream.XMLStreamException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import java.util.zip.ZipEntry;
 
-public class MediatorFileImpl implements MediatorFile {
+public abstract class MediatorFileImpl implements MediatorFile {
 
-    static final Queue<BufferedReader> queueFiles = new LinkedList<>();
-    static final Queue<ZipEntry> queueNameFiles = new LinkedList<>();
+    static final Deque<BufferedReader> files = new LinkedList<>();
+    static final Deque<ZipEntry> nameFiles = new LinkedList<>();
     static final HashMap<String, Parser> filesName = new HashMap<>();
 
     static {
@@ -23,19 +23,23 @@ public class MediatorFileImpl implements MediatorFile {
         filesName.put("client.xml", new ClientParse());
     }
 
-    public static void addFile(BufferedReader bufferedReader,ZipEntry entry) {
-        queueFiles.offer(bufferedReader);
-        queueNameFiles.offer(entry);
+    public void addFile(BufferedReader bufferedReader, ZipEntry zipEntry) {
+        files.push(bufferedReader);
+        nameFiles.push(zipEntry);
     }
 
     @Override
     public void sendFile() throws XMLStreamException, FileNotFoundException {
-        while ((queueNameFiles.peek()) != null) {
-            Parser parse = filesName.get(queueNameFiles.peek().getName());
-            System.out.println(parse);
-            parse.parse(queueFiles.poll(),queueNameFiles.poll());
+
+       while ((nameFiles.peek()) != null) {
+            Parser parse = filesName.get(nameFiles.peek().getName());
+            nameFiles.poll();
+            try {
+                parse.parse(files.poll());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
-
 }
-*/
+
