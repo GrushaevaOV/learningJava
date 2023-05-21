@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="java.learn.Task1" target="17" />
+      <module name="java.learn.Task1.test" target="17" />
       <module name="Task1" target="17" />
       <module name="Task1.main" target="17" />
       <module name="Task1.test" target="17" />

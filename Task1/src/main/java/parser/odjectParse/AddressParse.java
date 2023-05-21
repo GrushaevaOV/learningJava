@@ -1,3 +1,5 @@
+/*
+
 package parser.odjectParse;
 
 import object.Addres;
@@ -25,4 +27,7 @@ public class AddressParse extends ParseXML {
 
         return null;
     }
+
+
 }
+*/

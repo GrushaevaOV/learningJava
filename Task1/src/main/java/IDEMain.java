@@ -1,19 +1,21 @@
-import parser.odjectParse.FileParseService;
-import serviceDataPrint.CommunicationUser;
-import utils.AddresAndClientBase;
+import parser.odjectParse.ParseXML;
 
 import javax.xml.stream.XMLStreamException;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.zip.ZipFile;
 
 
 public class IDEMain {
 
-    public static void main(String[] args) throws XMLStreamException, FileNotFoundException {
-        FileParseService xmlParser = new FileParseService();
-        xmlParser.dispatch(new File("Task1/address.xml"),new File("Task1/client.xml"));
-        CommunicationUser communicationUser = new CommunicationUser();
-        communicationUser.communicate();
+    public static void main(String[] args) throws XMLStreamException, IOException {
+        ParseXML parseXML=new ParseXML();
+        parseXML.dispatch(new ZipFile("Task1/dataBaseClient.zip"));
+
+
+        /*FileParseService xmlParser = new FileParseService();
+        xmlParser.dispatch(new ZipFile("Task1/dataBaseClient.zip"));*/
+        /*CommunicationUser communicationUser = new CommunicationUser();
+        communicationUser.communicate();*/
 
        /* CounterPeopleOnFloor counterPeopleOnFloor = new CounterPeopleOnFloor();
         PeopleOnFlatnumber peopleOnFlatnumber = new PeopleOnFlatnumber();

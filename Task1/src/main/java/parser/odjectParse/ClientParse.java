@@ -1,3 +1,4 @@
+/*
 package parser.odjectParse;
 
 import object.Addres;
@@ -14,7 +15,6 @@ public class ClientParse extends ParseXML {
     Client parseStr(XMLStreamReader parser) {
         Map addressMap = convertFromListInMap(AddresAndClientBase.listAdress);
         if (parser.getLocalName().equals("client")) {
-            System.out.println();
             Client human = new Client();
             human.setId(Integer.parseInt(parser.getAttributeValue(0)));
             human.setName(parser.getAttributeValue(1));
@@ -26,3 +26,4 @@ public class ClientParse extends ParseXML {
         return null;
     }
 }
+*/
