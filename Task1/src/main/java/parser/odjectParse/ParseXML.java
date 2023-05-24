@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public abstract class ParseXML implements Parser {
 
-    Map convertFromListInMap(List<Addres> list) {
+    public Map convertFromListInMap(List<Addres> list) {
         return list.stream()
                 .collect(Collectors.toMap(Addres::getId, address -> address));
     }

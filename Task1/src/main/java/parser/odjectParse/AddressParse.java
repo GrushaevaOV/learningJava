@@ -10,7 +10,7 @@ public class AddressParse extends ParseXML {
     }
 
     @Override
-    Object parseStr(XMLStreamReader parser) {
+    public Object parseStr(XMLStreamReader parser) {
 
         if (parser.getLocalName().equals("address")) {
             Addres add = new Addres();
