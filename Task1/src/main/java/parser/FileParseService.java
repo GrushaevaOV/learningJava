@@ -19,12 +19,12 @@ public class FileParseService {
 
     public void dispatch(ZipFile file) throws XMLStreamException, ParserException {
 
-        try (ZipInputStream zipFile = new ZipInputStream(new FileInputStream(file.getName()))) {
+        try (ZipInputStream zipFile = new ZipInputStream(new BufferedInputStream(new FileInputStream(file.getName())))) {
             ZipEntry entry;
             while ((entry = zipFile.getNextEntry()) != null) {
                 String name = entry.getName(); // получим название файла
                 int size = (int) entry.getSize();  // получим его размер в байтах
-                System.out.printf("File name: %s \t File size: %d \n", name, size);
+                System.out.printf(zipFile.getClass() + " File name: %s \t File size: %d \n", name, size);
                 mediatorFile.sendFile(zipFile, entry.getName());
 
             }
