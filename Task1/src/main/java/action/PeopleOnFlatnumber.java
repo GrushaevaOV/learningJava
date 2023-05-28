@@ -5,7 +5,7 @@ import object.Client;
 import static utils.AddresAndClientBase.listClient;
 import static utils.AddresAndClientBase.listPeopleOnFlatnumber;
 
-public class PeopleOnFlatnumber implements Runnable {
+public class PeopleOnFlatnumber {
 
     public PeopleOnFlatnumber() {
     }
@@ -16,16 +16,15 @@ public class PeopleOnFlatnumber implements Runnable {
                 Client person = listClient.get(i);
                 Client human = listClient.get(j);
                 if (person.address == human.address) {
+                    System.out.println(person.toString());
+                    System.out.println(human.toString());
+                    System.out.println();
                     listPeopleOnFlatnumber.add(person);
                     listPeopleOnFlatnumber.add(human);
                 }
             }
         }
-    }
-
-    @Override
-    public void run() {
-        listPeopleOnFlatnumber();
 
     }
+
 }

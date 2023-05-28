@@ -1,17 +1,12 @@
 package parser;
 
 import object.Addres;
-import parser.Parser;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -29,7 +24,7 @@ public abstract class ParseXML implements Parser {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader parser = null;
         try {
-            parser = factory.createXMLStreamReader(file);
+            parser = factory.createXMLStreamReader(new NoCloseInputStream(file));
         } catch (XMLStreamException e) {
             System.out.println(e.getMessage());
         }

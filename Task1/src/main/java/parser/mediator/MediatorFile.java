@@ -5,5 +5,5 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public interface MediatorFile {
-    void sendFile() throws XMLStreamException, FileNotFoundException;
+    void sendFile(InputStream inputStream, String fileName) throws XMLStreamException, FileNotFoundException;
 }

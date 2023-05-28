@@ -55,7 +55,5 @@ public class Client {
         return string;
     }
 
-
-
 }
 

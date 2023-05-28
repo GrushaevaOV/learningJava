@@ -7,7 +7,7 @@ public class DataPrint {
     public void printClient(String line) {
         int counter = 0;
         for (Client client : AddresAndClientBase.listClient) {
-            if (client.name.equals(line) || client.personnelNumber.equals(line) || client.address.equals(line)) {
+            if (line.equals(client.name) || line.equals(client.personnelNumber) || line.equals(client.address.toStringAddress())) {
                 System.out.println(client.name + client.address.toStringAddress());
                 counter++;
             }

@@ -5,7 +5,7 @@ import object.Client;
 import static utils.AddresAndClientBase.listClient;
 import static utils.AddresAndClientBase.number;
 
-public class CounterPeopleOnFloor implements Runnable{
+public class CounterPeopleOnFloor{
 
     public CounterPeopleOnFloor() {
     }
@@ -18,10 +18,7 @@ public class CounterPeopleOnFloor implements Runnable{
                 number.put(human.address.getFloor(), number.get(human.address.getFloor()) + 1);
             }
         }
+        System.out.println(number);
     }
 
-    @Override
-    public void run() {
-        numberPeopleOnFloor();
-    }
 }
