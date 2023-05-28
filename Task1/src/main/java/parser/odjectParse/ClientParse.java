@@ -2,6 +2,7 @@ package parser.odjectParse;
 
 import object.Addres;
 import object.Client;
+import parser.ParseXML;
 import utils.AddresAndClientBase;
 
 import javax.xml.stream.XMLStreamReader;
@@ -11,7 +12,7 @@ public class ClientParse extends ParseXML {
     public ClientParse() {
     }
     @Override
-    Client parseStr(XMLStreamReader parser) {
+    public Client parseStr(XMLStreamReader parser) {
         Map addressMap = convertFromListInMap(AddresAndClientBase.listAdress);
         if (parser.getLocalName().equals("client")) {
             System.out.println();

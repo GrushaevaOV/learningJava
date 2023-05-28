@@ -1,6 +1,7 @@
 package parser.odjectParse;
 
 import object.Addres;
+import parser.ParseXML;
 import utils.AddresAndClientBase;
 
 import javax.xml.stream.XMLStreamReader;
@@ -10,7 +11,7 @@ public class AddressParse extends ParseXML {
     }
 
     @Override
-    Object parseStr(XMLStreamReader parser) {
+    public Object parseStr(XMLStreamReader parser) {
 
         if (parser.getLocalName().equals("address")) {
             Addres add = new Addres();

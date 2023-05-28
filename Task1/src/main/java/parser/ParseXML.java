@@ -1,4 +1,4 @@
-package parser.odjectParse;
+package parser;
 
 import object.Addres;
 import parser.Parser;
@@ -10,6 +10,7 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,21 +18,18 @@ import java.util.stream.Collectors;
 
 public abstract class ParseXML implements Parser {
 
-    Map convertFromListInMap(List<Addres> list) {
+    public Map convertFromListInMap(List<Addres> list) {
         return list.stream()
                 .collect(Collectors.toMap(Addres::getId, address -> address));
     }
-    abstract Object parseStr(XMLStreamReader parser);
 
-    public void parse(File file) {
+    public abstract  Object parseStr(XMLStreamReader parser);
+
+    public void parse(InputStream file) {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader parser = null;
-        List<Object> objects = new ArrayList<>();
-
         try {
-            parser = factory.createXMLStreamReader(new FileInputStream(file));
-        } catch (FileNotFoundException e) {
-            System.out.println("Check file path");
+            parser = factory.createXMLStreamReader(file);
         } catch (XMLStreamException e) {
             System.out.println(e.getMessage());
         }
@@ -41,8 +39,7 @@ public abstract class ParseXML implements Parser {
                 if (!parser.hasNext()) break;
                 int event = parser.next();
                 if (event == XMLStreamConstants.START_ELEMENT) {
-                    Object object = parseStr(parser);
-                    objects.add(object);
+                    parseStr(parser);
                 }
             }
         } catch (XMLStreamException e) {

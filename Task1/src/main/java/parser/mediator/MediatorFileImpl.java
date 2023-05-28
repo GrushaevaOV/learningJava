@@ -7,11 +7,13 @@ import parser.Parser;
 import javax.xml.stream.XMLStreamException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 
 public class MediatorFileImpl implements MediatorFile {
+    static List <InputStream> files = new ArrayList<>();
+    static  List <String> names = new ArrayList<>();
 
-    static final Queue<File> queueFiles = new LinkedList<>();
     static final HashMap<String, Parser> filesName = new HashMap<>();
 
     static {
@@ -19,17 +21,18 @@ public class MediatorFileImpl implements MediatorFile {
         filesName.put("client.xml", new ClientParse());
     }
 
-    public static void addFile(File file) {
-        queueFiles.offer(file);
+    public void addFile (InputStream inputStream, String fileName) {
+        files.add(inputStream);
+        names.add(fileName);
     }
 
     @Override
     public void sendFile() throws XMLStreamException, FileNotFoundException {
-        while ((queueFiles.peek()) != null) {
-            Parser parse = filesName.get(queueFiles.peek().getName());
-            parse.parse(queueFiles.poll());
+        for (int i=0;i<files.size();i++) {
+        Parser parser = filesName.get(names.get(i));
+        parser.parse(files.get(i));
         }
+        /*Parser parse = filesName.get(fileName);
+        parse.parse(inputStream);*/
     }
-
 }
-
