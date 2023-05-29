@@ -13,12 +13,8 @@ public class CommunicationUser extends DataPrint {
 
     public void bazaFraza() {
         System.out.println();
-        String message1 = " What are you doing? Print 1 (ALL Clients database); Print 2 (dataBase Address); Print 3 (Poick client po Name, PersonalNumber, Addres)";
-        StringBuilder messageUser1 = new StringBuilder(message1);
-        String message2 = " Print 4 - (print count people on floor); Print 5 - ( People lives 1 address); Print 6 - exit";
-        StringBuilder messageUser2 = new StringBuilder(message2);
-        System.out.println(messageUser1);
-        System.out.println(messageUser2);
+        String message = " What are you doing? Print 1 (ALL Clients database); Print 2 (dataBase Address); Print 3 (Poick client po Name, PersonalNumber, Addres; \n Print 4 - (print count people on floor); Print 5 - ( People lives 1 address); Print 6 - exit)";
+        System.out.println(message);
     }
 
     public void communicate() {
