@@ -28,7 +28,4 @@ public class AddresAndClientBase {
             System.out.println(client.toString());
         }
     }
-
-
 }
-
