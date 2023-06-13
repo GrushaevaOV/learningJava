@@ -1,7 +1,5 @@
 package factory.systems;
 
-import factory.OS;
-
 public class WindowsOS implements OS {
 
     @Override
