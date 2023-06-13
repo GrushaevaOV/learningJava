@@ -1,7 +1,5 @@
 package action;
 
-package action;
-
 import object.Client;
 
 import static utils.AddresAndClientBase.listClient;
